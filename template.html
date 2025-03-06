@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ Object identifier }} - פרטי פריט</title>
+    <title>{{ Object identifier }} - פרטי רכב</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         body {
@@ -59,12 +59,7 @@
             <p><strong>מזהה פריט:</strong> {{ Object identifier }}</p>
             <p><strong>תיאור:</strong> {{ תיאור }}</p>
             <p><strong>מיקום:</strong> {{ Georeference label }}</p>
-            <p><strong>קורדינטות:</strong> {{ Georeference }}</p>
             <p><strong>הערות:</strong> {{ הערות }}</p>
-            <div class="related-links">
-                <h3>Related Links</h3>
-                <p>{{ Georeference label }}</p>
-            </div>
         </div>
     </div>
     <script>
@@ -77,5 +72,8 @@
             L.marker({{ Georeference }}).addTo(map);
         });
     </script>
+    <footer>
+        <p><a href="index.html">חזרה לרשימת הרכבים</a></p>
+    </footer>
 </body>
 </html>
