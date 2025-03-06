@@ -11,7 +11,7 @@ with open('template.html', 'r', encoding='utf-8') as template_file:
     template_content = template_file.read()
 
 # Prepare the index.html content
-index_content = "<html><body><h1>QR Codes for HTML Pages</h1>"
+index_content = "<html dir='rtl'><body><h1>קוד QR לתקומה - הדגמה</h1>"
 
 # Read the cleaned CSV file
 with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
@@ -41,7 +41,7 @@ with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
         qr.save(qr_filepath)
         
         # Add the QR code to the index.html content
-        index_content += f'<div><h2>{object_id}</h2><img src="{qr_filename}" alt="QR Code for {filename}"></div>'
+        index_content += f'<div style="display: inline-block; margin: 10px;"><img src="{qr_filename}" alt="QR Code for {filename}"></div>'
 
 # Finalize and write the index.html content
 index_content += "</body></html>"
