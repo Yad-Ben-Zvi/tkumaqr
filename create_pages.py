@@ -41,7 +41,7 @@ with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
         qr.save(qr_filepath)
         
         # Add the QR code to the index.html content
-        index_content += f'<div style="display: inline-block; margin: 10px;"><img src="{qr_filename}" alt="QR Code for {filename}"></div>'
+        index_content += f'<div style="display: inline-block; margin: 10px;"><a href="{url}">{object_id}</a><br><img src="{qr_filename}" alt="QR Code for {filename}"></div>'
 
 # Finalize and write the index.html content
 index_content += "</body></html>"
