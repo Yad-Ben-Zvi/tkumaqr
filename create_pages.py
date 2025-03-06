@@ -34,7 +34,7 @@ with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
             html_file.write(item_content)
         
         # Generate a QR code for the HTML page
-        url = f"html/{filename}"
+        url = f"https://yad-ben-zvi.github.io/tkumaqr/html/{filename}"
         qr = qrcode.make(url)
         qr_filename = f"{object_id}_qr.png"
         qr_filepath = os.path.join(html_dir, qr_filename)
