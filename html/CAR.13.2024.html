@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR.13.2024 - פרטי פריט</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            direction: rtl;
+        }
+        .container {
+            display: flex;
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #map {
+            width: 50%;
+            height: 400px;
+            margin-left: 20px;
+            border-radius: 8px;
+        }
+        .details {
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        .details h2 {
+            margin-top: 0;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .related-links a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .related-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="map"></div>
+        <div class="details">
+            <div class="thumbnail">
+                <img src='https://ca.eretzhefetz.org.il/media/collectiveaccess/images/9/4/2/43320_ca_object_representations_media_94240_thumbnail.jpg' width='120' height='90' />
+            </div>
+            <h2>רכב</h2>
+            <p><strong>מזהה פריט:</strong> CAR.13.2024</p>
+            <p><strong>תיאור:</strong> סומן על ידי מורשת </p>
+            <p><strong>מיקום:</strong> מערום המכוניות בתקומה </p>
+            <p><strong>קורדינטות:</strong> [31.4485138,34.5696458]</p>
+            <p><strong>הערות:</strong> הרכב נמצא בשטח B שורה 1, רכב 78.</p>
+            <div class="related-links">
+                <h3>Related Links</h3>
+                <p>מערום המכוניות בתקומה </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map').setView([31.4485138,34.5696458], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([31.4485138,34.5696458]).addTo(map);
+        });
+    </script>
+</body>
+</html>
