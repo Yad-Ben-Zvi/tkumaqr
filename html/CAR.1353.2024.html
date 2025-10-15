@@ -14,29 +14,52 @@
             direction: rtl;
         }
         .container {
-            display: flex;
-            max-width: 800px;
+            max-width: 100%;
             margin: auto;
             background: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #map {
-            width: 50%;
-            height: 400px;
-            margin-left: 20px;
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+                padding: 20px;
+            }
+        }
+        .image {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             border-radius: 8px;
         }
         .details {
-            width: 50%;
+            width: 100%;
             margin-bottom: 20px;
+            text-align: right;
         }
         .details h2 {
             margin-top: 0;
         }
         .details p {
             margin: 5px 0;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
         }
         .related-links a {
             color: #3498db;
@@ -50,17 +73,17 @@
 </head>
 <body>
     <div class="container">
-        <div id="map"></div>
         <div class="details">
-            <div class="thumbnail">
-                <img src='https://ca.eretzhefetz.org.il/media/collectiveaccess/images/1/3/1/2/37009_ca_object_representations_media_131291_thumbnail.jpg' width='120' height='90' />
-            </div>
             <h2>N/A</h2>
             <p><strong>מזהה פריט:</strong> CAR.1353.2024</p>
             <p><strong>תיאור:</strong> N/A</p>
             <p><strong>מיקום:</strong> N/A</p>
             <p><strong>הערות:</strong> שטח B שורה 8 רכב 93</p>
         </div>
+        <div class="image">
+            <img src="images/CAR_1353_2024a_1.jpg" alt="תמונה של CAR.1353.2024">
+        </div>
+        <div id="map"></div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

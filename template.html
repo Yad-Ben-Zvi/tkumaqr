@@ -14,29 +14,52 @@
             direction: rtl;
         }
         .container {
-            display: flex;
-            max-width: 800px;
+            max-width: 100%;
             margin: auto;
             background: #fff;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #map {
-            width: 50%;
-            height: 400px;
-            margin-left: 20px;
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px;
+                padding: 20px;
+            }
+        }
+        .image {
+            width: 100%;
+            height: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             border-radius: 8px;
         }
         .details {
-            width: 50%;
+            width: 100%;
             margin-bottom: 20px;
+            text-align: right;
         }
         .details h2 {
             margin-top: 0;
         }
         .details p {
             margin: 5px 0;
+        }
+        #map {
+            height: 300px;
+            width: 100%;
+            margin: 20px 0;
+            border-radius: 8px;
         }
         .related-links a {
             color: #3498db;
@@ -50,17 +73,17 @@
 </head>
 <body>
     <div class="container">
-        <div id="map"></div>
         <div class="details">
-            <div class="thumbnail">
-                {{ Object media representation (thumbnail) }}
-            </div>
             <h2>{{ שם החפץ (חופשי) }}</h2>
             <p><strong>מזהה פריט:</strong> {{ Object identifier }}</p>
             <p><strong>תיאור:</strong> {{ תיאור }}</p>
             <p><strong>מיקום:</strong> {{ Georeference label }}</p>
             <p><strong>הערות:</strong> {{ הערות }}</p>
         </div>
+        <div class="image">
+            {{ Object media representation (thumbnail) }}
+        </div>
+        <div id="map"></div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -23,8 +23,13 @@ with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
         filename = f"{object_id}.html"
         filepath = os.path.join(html_dir, filename)
         
+        # Replace the image placeholder with the correct filename pattern first
+        safe_object_id = object_id.replace('.', '_')
+        image_filename = f"{safe_object_id}a_1.jpg"
+        image_path = f"images/{image_filename}"
+        item_content = template_content.replace("{{ Object media representation (thumbnail) }}", f'<img src="{image_path}" alt="תמונה של {object_id}">')
+        
         # Replace placeholders in the template with actual data
-        item_content = template_content
         for key, value in row.items():
             placeholder = f"{{{{ {key} }}}}"
             item_content = item_content.replace(placeholder, value if value else 'N/A')
@@ -34,7 +39,7 @@ with open('export_clean.csv', 'r', encoding='utf-8') as csv_file:
             html_file.write(item_content)
         
         # Generate a QR code for the HTML page
-        url = f"https://yad-ben-zvi.github.io/tkumaqr/html/{filename}"
+        url = filename  # Use relative path since index.html is in the same directory as the HTML files
         qr = qrcode.make(url)
         qr_filename = f"{object_id}_qr.png"
         qr_filepath = os.path.join(html_dir, qr_filename)
